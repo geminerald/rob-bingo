@@ -17,14 +17,14 @@ const phrases = [
     "'Chlo'",
     "'What have you'",
     "'Have you ever heard of X?'",
-    "'Smashing it'",
-    "Placeholder 9",
-    "Placeholder 10",
-    "Placeholder 11",
-    "Placeholder 12",
-    "Placeholder 13",
-    "Placeholder 14",
-    "Placeholder 15",
+    "'Smashing it/ Smashed it'",
+    "Puts 'Cheeky' in front of something",
+    "'That old chestnut'",
+    "'Really?? Wowwww!'",
+    "'G, wait til I tell you'",
+    "Mentions a banana",
+    "'Gwan P",
+    "Mentions breaking up the week",
   ];
   
   const board = document.getElementById("bingo-board");
