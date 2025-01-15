@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rob Bingo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Rob Bingo</h1>
+    <p class="instructions">Mark off Rob's phrases and actions as they happen. Get 5 in a row to win!</p>
+    <div class="bingo-board" id="bingo-board"></div>
+    <button id="reset-btn">Reset Board</button>
+  </div>
+
+  <!-- Winning Modal -->
+  <div class="modal hidden" id="win-modal">
+    <div class="modal-content">
+      <h2>🎉 Bingo! You Win! 🎉</h2>
+      <p>Great job keeping up with Rob!</p>
+      <button id="close-modal">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
