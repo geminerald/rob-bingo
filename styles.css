@@ -14,23 +14,32 @@ body {
 }
 
 /* Header Styles */
+/* Header Styles */
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+  gap: 20px; /* Adds space between image and text */
 }
 
 .header-image {
-  width: 60px;
-  height: 60px;
+  width: 100px; /* Increased size */
+  height: 100px; /* Matches width */
   border-radius: 50%;
-  margin-right: 10px;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 h1 {
   color: #E71E70;
-  font-size: 2.5rem;
+  font-size: 3rem; /* Increased title size */
+  line-height: 1.2; /* Adjusted line height */
+  margin: 0;
 }
 
 .instructions {
@@ -38,7 +47,6 @@ h1 {
   margin-bottom: 1.5rem;
   color: #666;
 }
-
 /* Bingo Board Styles */
 .bingo-board {
   display: grid;
