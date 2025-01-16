@@ -8,7 +8,12 @@
 </head>
 <body>
   <div id="app">
-    <h1>Rob Bingo</h1>
+    <!-- Header with image and title -->
+    <div class="header">
+      <img src="image.jpg" alt="Rob's Image" class="header-image">
+      <h1>Rob Bingo</h1>
+    </div>
+    
     <p class="instructions">Mark off Rob's phrases and actions as they happen. Get 5 in a row to win!</p>
     <div class="bingo-board" id="bingo-board"></div>
     <button id="reset-btn">Reset Board</button>
@@ -17,6 +22,7 @@
   <!-- Winning Modal -->
   <div class="modal hidden" id="win-modal">
     <div class="modal-content">
+      <img src="image.jpg" alt="Winning Image" class="modal-image">
       <h2>🎉 Bingo! You Win! 🎉</h2>
       <p>Great job keeping up with Rob!</p>
       <button id="close-modal">Close</button>
