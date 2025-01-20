@@ -4,7 +4,7 @@ const phrases = [
   "Phrase: 'Stella'",
   "Phrase: 'Did you know...?'",
   "Phrase: 'Love it'",
-  "Phrase: 'what it is is'",
+  "Phrase: 'What it is is'",
   "Phrase: 'Fluent'",
   "Action: Forgets someone's name mid sentence",
   "Action: Makes up a new word",
