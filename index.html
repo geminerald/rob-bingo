@@ -19,7 +19,23 @@
     
     <p class="instructions">Mark off Rob's phrases and actions as they happen. Get 5 in a row to win!</p>
     <div class="bingo-board" id="bingo-board"></div>
-    <button id="reset-btn">Reset Board</button>
+    <div class="buttons">
+      <button id="reset-btn">Reset Board</button>
+      <button id="suggest-btn">Submit Suggestion</button>
+    </div>
+  </div>
+  
+  <!-- Suggestion Modal -->
+  <div class="modal hidden" id="suggest-modal">
+    <div class="modal-content">
+      <h2>Submit a Suggestion</h2>
+      <p>Have an idea for Rob's Bingo? Let us know!</p>
+      <textarea id="suggest-input" placeholder="Enter your suggestion here..."></textarea>
+      <div class="modal-buttons">
+        <button id="send-suggestion">Send</button>
+        <button id="close-suggest-modal">Close</button>
+      </div>
+    </div>
   </div>
   <!-- Winning Modal -->
   <div class="modal hidden" id="win-modal">
