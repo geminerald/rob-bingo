@@ -24,6 +24,7 @@ const phrases = [
   "Action: Mentions a banana",
   "Phrase: 'Gwan P'",
   "Action: Mentions breaking up the week",
+  "Phrase: Heyoo!!",
 ];
 
 const board = document.getElementById("bingo-board");
@@ -44,11 +45,11 @@ function loadBoardFromLocalStorage() {
   return { savedBoard, savedMarkedSquares };
 }
 
-// Generate a new shuffled board and save it to localStorage
+// Generate a new shuffled board with 25 random phrases and save it to localStorage
 function generateNewBoard() {
-  const shuffledPhrases = [...phrases].sort(() => Math.random() - 0.5);
-  const boardArray = shuffledPhrases.slice(0, 25);
-  const markedSquares = Array(25).fill(false);
+  const shuffledPhrases = [...phrases].sort(() => Math.random() - 0.5); // Shuffle the array
+  const boardArray = shuffledPhrases.slice(0, 25); // Select the first 25 phrases
+  const markedSquares = Array(25).fill(false); // Initialize marked squares
   saveBoardToLocalStorage(boardArray, markedSquares);
   return { boardArray, markedSquares };
 }
@@ -123,48 +124,6 @@ function initializeBoard() {
     renderBoard(boardArray, markedSquares);
   }
 }
-
-// Suggestion Feature
-
-const suggestBtn = document.getElementById("suggest-btn");
-const suggestModal = document.getElementById("suggest-modal");
-const closeSuggestModal = document.getElementById("close-suggest-modal");
-const sendSuggestion = document.getElementById("send-suggestion");
-const suggestInput = document.getElementById("suggest-input");
-
-// Show the suggestion modal
-suggestBtn.addEventListener("click", () => {
-  suggestModal.classList.add("visible");
-});
-
-// Close the suggestion modal
-closeSuggestModal.addEventListener("click", () => {
-  suggestModal.classList.remove("visible");
-});
-
-// Send the suggestion via mailto
-sendSuggestion.addEventListener("click", () => {
-  const suggestion = suggestInput.value.trim();
-
-  if (!suggestion) {
-    alert("Please enter a suggestion before sending!");
-    return;
-  }
-
-  // Prepopulate mailto link
-  const email = "zac.warner@prepaypower.ie"; // Replace with your email
-  const subject = encodeURIComponent("Rob's Lingo Bingo Suggestion");
-  const body = encodeURIComponent(`Here is my suggestion:\n\n${suggestion}`);
-  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
-
-  // Open the email client
-  window.location.href = mailtoLink;
-
-  // Clear the input and close the modal
-  suggestInput.value = "";
-  suggestModal.classList.remove("visible");
-});
-
 
 // Start the game
 initializeBoard();
