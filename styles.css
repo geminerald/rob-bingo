@@ -9,18 +9,22 @@ body {
 }
 
 #app {
-  max-width: 800px;
-  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Header Styles */
-/* Header Styles */
 .header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  gap: 20px; /* Adds space between image and text */
+  margin-bottom: 16px;
 }
 
 .header-image {
@@ -43,17 +47,21 @@ h1 {
 }
 
 .instructions {
+  text-align: center;
+  margin: 16px 0 24px 0;
   font-size: 1rem;
-  margin-bottom: 1.5rem;
   color: #666;
 }
+
 /* Bingo Board Styles */
-.bingo-board {
+.bingo-board, #bingo-board {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
-  margin: 0 auto 1.5rem auto;
-  max-width: 500px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 700px;
+  margin: 0 auto 24px auto;
+  justify-items: center;
 }
 
 .bingo-board .square {
@@ -64,6 +72,13 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
+  min-width: 220px;
+  min-height: 80px;
+  aspect-ratio: 2/1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .bingo-board .square:hover {
@@ -86,6 +101,8 @@ h1 {
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.2s;
+  margin: 0;
+  align-self: center;
 }
 
 #reset-btn:hover {
@@ -160,9 +177,10 @@ h1 {
 /* Buttons Container */
 .buttons {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 15px;
-  margin-top: 1rem;
+  margin: 0 auto 24px auto;
 }
 
 /* Suggest Button */
@@ -247,4 +265,46 @@ h1 {
 
 #suggest-modal button:hover {
   background-color: #c91a5b;
+}
+
+/* Custom Square Input and Button */
+.crn-square-input {
+  padding: 6px 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 1em;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  background: #f9f9f9;
+  color: #222;
+  outline: none;
+  transition: border 0.2s;
+}
+.crn-square-input:focus {
+  border: 1.5px solid #0078d7;
+  background: #fff;
+}
+
+.crn-square-input::placeholder {
+  font-size: 0.9em;
+  color: #888;
+  opacity: 1;
+}
+
+.crn-square-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 5px;
+  background: #0078d7;
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 4px;
+  margin-top: 6px;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+.crn-square-btn:hover, .crn-square-btn:focus {
+  background: #005fa3;
 }
