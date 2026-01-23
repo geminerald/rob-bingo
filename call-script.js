@@ -145,11 +145,56 @@ function addEmailButtonToModal(boardArray, crnValues) {
       alert('No CRNs found to email.');
       return;
     }
-    const subject = encodeURIComponent('Bingo CRNs');
-    const body = encodeURIComponent(lines.join('\n'));
-    // open mail client
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    showEmailModal(lines.join('\n'));
   };
+}
+
+// Show modal explaining mailto behavior with option to copy to clipboard
+function showEmailModal(crnText) {
+  // Create modal if it doesn't exist
+  let emailModal = document.getElementById('email-modal');
+  if (!emailModal) {
+    emailModal = document.createElement('div');
+    emailModal.id = 'email-modal';
+    emailModal.className = 'modal';
+    emailModal.innerHTML = `
+      <div class="modal-content">
+        <h2>Opening Email</h2>
+        <p>Give it a minute for your email client to open with the CRNs pre-filled.</p>
+        <p>If it doesn't work, click the button below to copy the CRNs to your clipboard:</p>
+        <button id="copy-crn-btn" class="copy-btn">Copy CRNs to Clipboard</button>
+        <button id="close-email-modal" class="close-btn">Close</button>
+      </div>
+    `;
+    document.body.appendChild(emailModal);
+  }
+
+  // Update the copy button with current CRN data
+  const copyBtn = emailModal.querySelector('#copy-crn-btn');
+  copyBtn.onclick = () => {
+    navigator.clipboard.writeText(crnText).then(() => {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(() => {
+        copyBtn.textContent = 'Copy CRNs to Clipboard';
+      }, 2000);
+    }).catch(() => {
+      alert('Failed to copy. Please try again.');
+    });
+  };
+
+  // Close button
+  const closeEmailBtn = emailModal.querySelector('#close-email-modal');
+  closeEmailBtn.onclick = () => {
+    emailModal.classList.remove('visible');
+  };
+
+  // Show the modal
+  emailModal.classList.add('visible');
+
+  // Also trigger the mailto link
+  const subject = encodeURIComponent('Bingo CRNs');
+  const body = encodeURIComponent(crnText);
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
 }
 
 // Reset the board

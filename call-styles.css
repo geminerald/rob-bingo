@@ -308,3 +308,77 @@ h1 {
 .crn-square-btn:hover, .crn-square-btn:focus {
   background: #005fa3;
 }
+/* Email Modal Styles */
+#email-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#email-modal.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#email-modal .modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  max-width: 450px;
+}
+
+#email-modal h2 {
+  color: #E71E70;
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+#email-modal p {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 1rem 0;
+}
+
+.copy-btn {
+  background-color: #0078d7;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin: 0.5rem 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.copy-btn:hover {
+  background-color: #005fa3;
+}
+
+.close-btn {
+  background-color: #E71E70;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin: 0.5rem 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.close-btn:hover {
+  background-color: #c91a5b;
+}
