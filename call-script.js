@@ -7,7 +7,14 @@ const phrases = [
   "Customer gives last 3 digits instead of 6",
   "Customer has high usage but says ‘Theres nothing being used’",
   "Account has 2 account holders",
-  "Customer has the same name as one of the Supervisors"
+  "Customer has the same name as one of the Supervisors",
+  "Customer says they need a new modem",
+  "Customer says 'but it was working yesterday!'",
+  "Quality: 50 Evaluations in a week",
+  "Quality: Quality Book Completed",
+  "Ops: AC Comms stop working",
+  "Ops: Customer changes mobile number in request",
+  "Get locked out of a system"
 ];
 
 const board = document.getElementById("bingo-board");
@@ -30,12 +37,12 @@ function loadBoardFromLocalStorage() {
   return { savedBoard, savedMarkedSquares, savedCrnValues };
 }
 
-// Generate a new shuffled board with 9 random phrases and save it to localStorage
+// Generate a new shuffled board with 16 random phrases and save it to localStorage
 function generateNewBoard() {
   const shuffledPhrases = [...phrases].sort(() => Math.random() - 0.5); // Shuffle the array
-  const boardArray = shuffledPhrases.slice(0, 9); // Select the first 9 phrases
-  const markedSquares = Array(9).fill(false); // Initialize marked squares
-  const crnValues = Array(9).fill(null); // Initialize per-square CRN values
+  const boardArray = shuffledPhrases.slice(0, 16); // Select the first 16 phrases
+  const markedSquares = Array(16).fill(false); // Initialize marked squares
+  const crnValues = Array(16).fill(null); // Initialize per-square CRN values
   saveBoardToLocalStorage(boardArray, markedSquares, crnValues);
   return { boardArray, markedSquares, crnValues };
 }
@@ -69,7 +76,7 @@ function renderBoard(boardArray, markedSquares, crnValues) {
       square.appendChild(phraseDiv);
       const input = document.createElement('input');
       input.type = 'text';
-      input.placeholder = 'Enter CRN';
+      input.placeholder = 'CRN/Call ID';
       input.className = 'crn-square-input';
       input.style.marginTop = '6px';
       input.style.width = '70px';
@@ -100,10 +107,10 @@ function renderBoard(boardArray, markedSquares, crnValues) {
   });
 }
 
-// Check for Bingo (all 9 squares must be marked)
+// Check for Bingo (any 8 of 16 squares must be marked)
 function checkWin(boardArray, markedSquares, crnValues) {
-  const allMarked = markedSquares.every(Boolean);
-  if (allMarked) {
+  const markedCount = markedSquares.filter(Boolean).length;
+  if (markedCount >= 8) {
     winModal.classList.add('visible');
     addEmailButtonToModal(boardArray, crnValues);
   }
@@ -165,9 +172,9 @@ function initializeBoard() {
   const { savedBoard, savedMarkedSquares, savedCrnValues } = loadBoardFromLocalStorage();
   if (savedBoard && savedMarkedSquares) {
     // Ensure crnValues array exists and has correct length
-    const crnValues = Array.isArray(savedCrnValues) && savedCrnValues.length === 9
+    const crnValues = Array.isArray(savedCrnValues) && savedCrnValues.length === 16
       ? savedCrnValues
-      : Array(9).fill(null);
+      : Array(16).fill(null);
     renderBoard(savedBoard, savedMarkedSquares, crnValues);
   } else {
     const { boardArray, markedSquares, crnValues } = generateNewBoard();

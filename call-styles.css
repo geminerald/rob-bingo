@@ -56,10 +56,10 @@ h1 {
 /* Bingo Board Styles */
 .bingo-board, #bingo-board {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   gap: 12px;
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto 24px auto;
   justify-items: center;
 }
@@ -286,7 +286,7 @@ h1 {
 }
 
 .crn-square-input::placeholder {
-  font-size: 0.9em;
+  font-size: 0.75em;
   color: #888;
   opacity: 1;
 }
