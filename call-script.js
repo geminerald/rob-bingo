@@ -1,20 +1,21 @@
 const phrases = [
-  "Customers name begins with V",
-  "Customer lives in Donegal",
-  "Customer says ‘I know it’s not your fault’",
-  "Customer says ‘Can I speak to a manager?’",
-  "Customer has an email address with ‘@ymail.com’",
-  "Customer gives last 3 digits instead of 6",
-  "Customer has high usage but says ‘Theres nothing being used’",
-  "Account has 2 account holders",
-  "Customer has the same name as one of the Supervisors",
-  "Customer says they need a new modem",
-  "Customer says 'but it was working yesterday!'",
-  "Quality: 50 Evaluations in a week",
-  "Quality: Quality Book Completed",
-  "Ops: AC Comms stop working",
-  "Ops: Customer changes mobile number in request",
-  "Get locked out of a system"
+"Customer has a sub account",
+"Customer has more than 1 product with us",
+"Customer tries calling out their bank card details instead of typing it into phone",
+"Customer tops up the wrong PAN",
+"Customers address is in Cork",
+"Customer has an email address with ‘@live.co.uk’",
+"Customers First and Last name begin with the same letter",
+"Customer was born in December",
+"Customer has a commercial tariff",
+"Customer has the same name as a CX phone agent",
+"Ops: AC comms not working",
+"Ops: Mabs request of €50",
+"BB: Customer says ‘but it was working yesterday!’",
+"BB: Customer requests a new modem",
+"Quality: Quality book completed",
+"Quality: 50 evaluations in a week",
+
 ];
 
 const board = document.getElementById("bingo-board");
