@@ -15,7 +15,6 @@ const phrases = [
 "BB: Customer requests a new modem",
 "Quality: Quality book completed",
 "Quality: 50 evaluations in a week",
-
 ];
 
 const board = document.getElementById("bingo-board");
