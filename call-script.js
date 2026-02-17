@@ -1,20 +1,20 @@
 const phrases = [
-"Customer has a sub account",
+"Customer asks for agents name",
+"Customer is born in February",
+"Customers mobile starts with 089",
+"Customer has the same name as a phone agent",
+"Customer has a funny email address",
 "Customer has more than 1 product with us",
-"Customer tries calling out their bank card details instead of typing it into phone",
-"Customer tops up the wrong PAN",
-"Customers address is in Cork",
-"Customer has an email address with ‘@live.co.uk’",
-"Customers First and Last name begin with the same letter",
-"Customer was born in December",
-"Customer has a commercial tariff",
-"Customer has the same name as a CX phone agent",
-"Ops: AC comms not working",
-"Ops: Mabs request of €50",
-"BB: Customer says ‘but it was working yesterday!’",
-"BB: Customer requests a new modem",
-"Quality: Quality book completed",
-"Quality: 50 evaluations in a week",
+"Customer says they don’t have an account number",
+"Customer says they’ve been transferred multiple times",
+"Quality: 1st evaluator to complete their weeks evals",
+"Quality: NPS categorisation completed",
+"BB: Customer wants an engineer out today",
+"BB: Customer says the dog ate the cable",
+"Yuno: Customer wants to change their billing date",
+"Yuno: Customer wants to make payment over the phone",
+"CX Ops: Customer gives incorrect last 6 in AC Requests",
+"CX Ops: Customer selects incorrect meter type",
 ];
 
 const board = document.getElementById("bingo-board");
@@ -203,6 +203,12 @@ resetBtn.addEventListener('click', () => {
   localStorage.removeItem('bingoBoard');
   localStorage.removeItem('markedSquares');
   localStorage.removeItem('crnValues');
+  try {
+  if ('caches' in window) {
+    caches.keys().then(names => names.forEach(name => caches.delete(name)));
+  }
+} catch (e) {}
+
   const { boardArray, markedSquares, crnValues } = generateNewBoard();
   renderBoard(boardArray, markedSquares, crnValues);
 });
