@@ -6,7 +6,7 @@ const phrases = [
 "Customer has a funny email address",
 "Customer has more than 1 product with us",
 "Customer says they don’t have an account number",
-"Customer says they’ve been transferred multiple times",
+"This is a new customer(came onto supply in February)",
 "Quality: 1st evaluator to complete their weeks evals",
 "Quality: NPS categorisation completed",
 "BB: Customer wants an engineer out today",
